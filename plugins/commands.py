@@ -9,8 +9,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @Client.on_message(
     filters.command(["start"]) &
-    filters.private &
-    filters.user(Config.AUTH_USERS) if Config.PRIVATE else None
+    filters.private
 )
 async def start(bot, update):
     await update.reply_text(
