@@ -8,12 +8,12 @@ else:
 from plugins.youtube_dl_button import youtube_dl_call_back
 from plugins.dl_button import ddl_call_back
 from translation import Translation
-from pyrogram import Client
+from pyrogram import Client, Filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 @Client.on_callback_query(
-    filters.user(Config.AUTH_USERS) if Config.PRIVATE else None
+    Filters.user(Config.AUTH_USERS) if Config.PRIVATE else None
 )
 async def button(bot, update):
     if "|" in update.data:
