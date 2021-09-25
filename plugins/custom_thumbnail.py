@@ -15,8 +15,7 @@ from database.database import *
 
 @Client.on_message(
     filters.private &
-    filters.photo &
-    filters.user(Config.AUTH_USERS) if Config.PRIVATE else None
+    filters.photo
 )
 async def save_photo(bot, update):
     if update.media_group_id is not None:
