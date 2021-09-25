@@ -12,9 +12,7 @@ from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
-@Client.on_callback_query(
-    filters.user(Config.AUTH_USERS) if Config.PRIVATE else None
-)
+@Client.on_callback_query()
 async def button(bot, update):
     if "|" in update.data:
         await youtube_dl_call_back(bot, update)
